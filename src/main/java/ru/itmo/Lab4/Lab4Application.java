@@ -19,7 +19,7 @@ public class Lab4Application {
 	@Bean
 	CommandLineRunner initDatabase(PointRepository repository) {
 		return args -> {
-			log.info("Preloading " + repository.save(new Point(1, 1, 1, true)));
+			log.info("Preloading " + repository.save(new Point(0, 0, 1, true)));
 			log.info("Preloading " + repository.save(new Point(1, 10, 1, false)));
 		};
 	}
