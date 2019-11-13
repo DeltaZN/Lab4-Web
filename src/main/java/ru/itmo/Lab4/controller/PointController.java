@@ -20,8 +20,8 @@ public class PointController {
     }
 
     @PostMapping("/points")
-    Point newPoint(@RequestBody Point newEmployee) {
-        return repository.save(newEmployee);
+    Point newPoint(@RequestBody Point newPoint) {
+        return repository.save(newPoint);
     }
 
 
