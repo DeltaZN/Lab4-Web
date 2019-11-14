@@ -1,26 +1,28 @@
-package ru.itmo.Lab4.data;
+package ru.itmo.Lab4.model;
 
 import lombok.Data;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Data
 @Entity
+@Table(name = "points")
 public class Point {
     private @Id @GeneratedValue Long id;
     private Double x;
     private Double y;
     private Double r;
-    private Boolean hit;
+    private Boolean inArea;
 
     public Point() {}
 
-    public Point(double x, double y, double r, boolean hit) {
+    public Point(double x, double y, double r, boolean inArea) {
         this.x = x;
         this.y = y;
         this.r = r;
-        this.hit = hit;
+        this.inArea = inArea;
     }
 }

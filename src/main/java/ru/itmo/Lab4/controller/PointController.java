@@ -1,7 +1,7 @@
 package ru.itmo.Lab4.controller;
 
 import org.springframework.web.bind.annotation.*;
-import ru.itmo.Lab4.data.Point;
+import ru.itmo.Lab4.model.Point;
 import ru.itmo.Lab4.model.Graphic;
 import ru.itmo.Lab4.repositories.PointRepository;
 
@@ -24,7 +24,7 @@ public class PointController {
 
     @PostMapping("/points")
     Point newPoint(@RequestBody Point newPoint) {
-        newPoint.setHit(graphic.isHit(newPoint));
+        newPoint.setInArea(graphic.isInArea(newPoint));
         return repository.save(newPoint);
     }
 
@@ -44,11 +44,11 @@ public class PointController {
                     point.setX(newPoint.getX());
                     point.setY(newPoint.getY());
                     point.setR(newPoint.getR());
-                    point.setHit(graphic.isHit(newPoint));
+                    point.setInArea(graphic.isInArea(newPoint));
                     return repository.save(point);
                 })
                 .orElseGet(() -> {
-                    newPoint.setHit(graphic.isHit(newPoint));
+                    newPoint.setInArea(graphic.isInArea(newPoint));
                     newPoint.setId(id);
                     return repository.save(newPoint);
                 });

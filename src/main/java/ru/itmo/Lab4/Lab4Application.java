@@ -5,7 +5,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import ru.itmo.Lab4.data.Point;
+import ru.itmo.Lab4.model.Point;
 import ru.itmo.Lab4.repositories.PointRepository;
 
 @SpringBootApplication
