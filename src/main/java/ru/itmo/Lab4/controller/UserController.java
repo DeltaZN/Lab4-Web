@@ -1,61 +1,55 @@
 package ru.itmo.Lab4.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.*;
-import ru.itmo.Lab4.model.User;
-import ru.itmo.Lab4.service.SecurityService;
-import ru.itmo.Lab4.service.UserService;
-import ru.itmo.Lab4.validator.UserValidator;
+import java.security.Principal;
 
-@Controller
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+import ru.itmo.Lab4.model.User;
+import ru.itmo.Lab4.service.UserService;
+
+/**
+ * @author kamal berriga
+ *
+ */
+@RestController
+@RequestMapping("account")
 public class UserController {
+
+    private static final Logger logger = LoggerFactory.getLogger(UserController.class);
+
     @Autowired
     private UserService userService;
 
-    @Autowired
-    private SecurityService securityService;
-
-    @Autowired
-    private UserValidator userValidator;
-
-    @GetMapping("/registration")
-    public String registration(Model model) {
-        model.addAttribute("userForm", new User());
-
-        return "registration";
-    }
-
-    @PostMapping("/registration")
-    public String registration(@ModelAttribute("userForm") User userForm, BindingResult bindingResult) {
-        userValidator.validate(userForm, bindingResult);
-
-        if (bindingResult.hasErrors()) {
-            return "registration";
+    // request method to create a new account by a guest
+    @CrossOrigin
+    @RequestMapping(value = "/register", method = RequestMethod.POST)
+    public ResponseEntity<?> createUser(@RequestBody User newUser) {
+        if (userService.findByUsername(newUser.getUsername()) != null) {
+            logger.error("username Already exist " + newUser.getUsername());
+            return new ResponseEntity<>(
+                    new RuntimeException("user with username " + newUser.getUsername() + "already exist "),
+                    HttpStatus.CONFLICT);
         }
 
-        userService.save(userForm);
-
-        securityService.autoLogin(userForm.getUsername(), userForm.getPasswordConfirm());
-
-        return "redirect:/welcome";
+        return new ResponseEntity<>(userService.save(newUser), HttpStatus.CREATED);
     }
 
-    @GetMapping("/login")
-    public String login(Model model, String error, String logout) {
-        if (error != null)
-            model.addAttribute("error", "Your username and password is invalid.");
-
-        if (logout != null)
-            model.addAttribute("message", "You have been logged out successfully.");
-
-        return "login";
+    // this is the login api/service
+    @CrossOrigin
+    @RequestMapping("/login")
+    public Principal user(Principal principal) {
+        logger.info("user logged "+principal);
+        return principal;
     }
 
-    @GetMapping({"/", "/welcome"})
-    public String welcome(Model model) {
-        return "welcome";
-    }
+
+
 }
