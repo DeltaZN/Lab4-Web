@@ -16,12 +16,4 @@ public class Lab4Application {
 		SpringApplication.run(Lab4Application.class, args);
 	}
 
-	@Bean
-	CommandLineRunner initDatabase(PointRepository repository) {
-		return args -> {
-			log.info("Preloading " + repository.save(new Point(0, 0, 1, true)));
-			log.info("Preloading " + repository.save(new Point(1, 10, 1, false)));
-		};
-	}
-
 }

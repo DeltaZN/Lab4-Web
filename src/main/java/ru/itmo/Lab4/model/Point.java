@@ -2,10 +2,7 @@ package ru.itmo.Lab4.model;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Data
 @Entity
@@ -16,6 +13,9 @@ public class Point {
     private Double y;
     private Double r;
     private Boolean inArea;
+
+    @ManyToOne
+    private User user;
 
     public Point() {}
 

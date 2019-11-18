@@ -39,6 +39,8 @@ public class UserController {
                     HttpStatus.CONFLICT);
         }
 
+        logger.info("user registered " + newUser.getUsername());
+
         return new ResponseEntity<>(userService.save(newUser), HttpStatus.CREATED);
     }
 

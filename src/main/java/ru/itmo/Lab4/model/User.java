@@ -17,6 +17,4 @@ public class User {
     @Transient
     private String passwordConfirm;
 
-    @OneToMany
-    private Set<Point> points;
 }
