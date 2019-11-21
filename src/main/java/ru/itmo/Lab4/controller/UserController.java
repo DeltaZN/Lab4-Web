@@ -12,13 +12,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import ru.itmo.Lab4.model.User;
+import ru.itmo.Lab4.model.data.User;
 import ru.itmo.Lab4.service.UserService;
 
-/**
- * @author kamal berriga
- *
- */
 @RestController
 @RequestMapping("account")
 public class UserController {
@@ -28,7 +24,6 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    // request method to create a new account by a guest
     @CrossOrigin
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public ResponseEntity<?> createUser(@RequestBody User newUser) {
@@ -44,7 +39,6 @@ public class UserController {
         return new ResponseEntity<>(userService.save(newUser), HttpStatus.CREATED);
     }
 
-    // this is the login api/service
     @CrossOrigin
     @RequestMapping("/login")
     public Principal user(Principal principal) {

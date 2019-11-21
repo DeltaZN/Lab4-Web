@@ -51,9 +51,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             }
         };
     }
-    // This method is for overriding some configuration of the WebSecurity
-    // If you want to ignore some request or request patterns then you can
-    // specify that inside this method
+
     @Override
     public void configure(WebSecurity web) throws Exception {
         super.configure(web);

@@ -12,11 +12,11 @@ export class AuthService {
     let headers = new Headers();
     headers.append('Accept', 'application/json');
     // creating base64 encoded String from user name and password
-    var base64Credential: string = btoa( user.username+ ':' + user.password);
+    let base64Credential: string = btoa( user.username+ ':' + user.password);
     headers.append("Authorization", "Basic " + base64Credential);
 
     let options = new RequestOptions();
-    options.headers=headers;
+    options.headers = headers;
 
     return this.http.get(AppComponent.API_URL+"/account/login" ,   options)
       .map((response: Response) => {
@@ -24,6 +24,7 @@ export class AuthService {
       let user = response.json().principal;// the returned user object is a principal object
       if (user) {
         // store user details  in local storage to keep user logged in between page refreshes
+        localStorage.setItem('userHash', base64Credential);
         localStorage.setItem('currentUser', JSON.stringify(user));
       }
     });
@@ -31,6 +32,7 @@ export class AuthService {
 
   logOut() {
     // remove user from local storage to log user out
+    localStorage.removeItem('userHash');
     localStorage.removeItem('currentUser');
     return this.http.post(AppComponent.API_URL+"logout",{});
   }

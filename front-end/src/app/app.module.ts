@@ -7,7 +7,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from "./services/auth.service";
-import {HttpModule} from "@angular/http";
+import { HttpClientModule }   from '@angular/common/http';
 import {AccountService} from "./services/account.service";
 import { ProfileComponent } from './components/profile/profile.component';
 import {routing} from "./app.routing";
@@ -15,8 +15,8 @@ import {FacebookModule} from "ngx-facebook";
 import {UrlPermission} from "./urlPermission/url.permission";
 import {HistoryComponent} from './components/history/history.component';
 import {CheckPointComponent} from './components/check-point/check-point.component';
-import {HistoryService} from "./services/history.service";
-import { InfoComponent } from './components/info/info.component';
+import {PointsService} from "./services/points.service";
+import {HttpModule} from "@angular/http";
 
 
 @NgModule({
@@ -27,13 +27,12 @@ import { InfoComponent } from './components/info/info.component';
     ProfileComponent,
     HistoryComponent,
     CheckPointComponent,
-    InfoComponent,
 
   ],
   imports: [
-    BrowserModule,HttpModule,FormsModule,routing, FacebookModule.forRoot(),
+    BrowserModule,HttpClientModule, HttpModule, FormsModule,routing, FacebookModule.forRoot(),
   ],
-  providers: [AuthService, AccountService, UrlPermission, HistoryService],
+  providers: [AuthService, AccountService, UrlPermission, PointsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

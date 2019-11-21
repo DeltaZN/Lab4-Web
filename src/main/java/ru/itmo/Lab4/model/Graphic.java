@@ -1,6 +1,7 @@
 package ru.itmo.Lab4.model;
 
 import org.springframework.stereotype.Component;
+import ru.itmo.Lab4.model.data.Point;
 
 @Component
 public class Graphic {
@@ -14,4 +15,5 @@ public class Graphic {
     public boolean isInArea(Point point) {
         return isInArea(point.getX(), point.getY(), point.getR());
     }
+
 }

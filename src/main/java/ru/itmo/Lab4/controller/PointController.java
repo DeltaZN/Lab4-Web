@@ -2,7 +2,7 @@ package ru.itmo.Lab4.controller;
 
 import org.springframework.web.bind.annotation.*;
 import ru.itmo.Lab4.model.Graphic;
-import ru.itmo.Lab4.model.Point;
+import ru.itmo.Lab4.model.data.Point;
 import ru.itmo.Lab4.repositories.PointRepository;
 import ru.itmo.Lab4.repositories.UserRepository;
 
@@ -24,6 +24,7 @@ public class PointController {
     @CrossOrigin
     @GetMapping("/points")
     Collection<Point> allPoints(Principal user) {
+        System.out.println("all points request from "+user.getName());
         return pointRepository.findAllUserPoints(userRepository.findByUsername(user.getName()));
     }
 
