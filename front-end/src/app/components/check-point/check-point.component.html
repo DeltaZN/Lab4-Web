@@ -3,7 +3,7 @@
 
   <div class="form-group" [ngClass]="{ 'has-error': f.submitted}">
     <label for="xSelect">X</label>
-    <select form="formId" id="xSelect">
+    <select form="formId" id="xSelect" #x (change)="setX(x.value)" >
       <option value="-2">-2</option>
       <option value="-1.5">-1.5</option>
       <option value="-1">-1</option>
@@ -24,22 +24,22 @@
 
   <div class="form-group" [ngClass]="{ 'has-error': f.submitted }">
     <label for="rSelect">R</label>
-    <select form="formId" id="rSelect">
-      <option value="-2">-2</option>
-      <option value="-1.5">-1.5</option>
-      <option value="-1">-1</option>
-      <option value="-0.5">-0.5</option>
-      <option value="0">0</option>
-      <option value="0.5">0.5</option>
+    <select form="formId" id="rSelect" #r (change)="drawGraphic($event.target.value); setR(r.value);">
       <option value="1">1</option>
       <option value="1.5">1.5</option>
       <option value="2">2</option>
+      <option value="2.5">2.5</option>
+      <option value="3">3</option>
+      <option value="3.5">3.5</option>
+      <option value="4">4</option>
+      <option value="4.5">4.5</option>
+      <option value="5">5</option>
     </select>
   </div>
 
   <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Add point</button>
 
 </form>
-<canvas id="canvas" width="300" height="300" onclick="addPointFromCanvas()">
+<canvas id="canvas" width="300" height="300" (click)="addPointFromCanvas()">
 </canvas>
 

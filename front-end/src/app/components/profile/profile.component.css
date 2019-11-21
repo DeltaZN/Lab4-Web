@@ -82,7 +82,7 @@ body, html {
   border-radius: 0;
 }
 
-ul.nav li{
+ul.nav li {
   width: 120px;
   height: 50px;
   text-align: center;
@@ -92,15 +92,15 @@ nav li.active {
   background-color: #080808;
 }
 
-nav li.active>a {
+nav li.active > a {
   color: #fff;
 }
 
-nav li:not(.active)>a {
+nav li:not(.active) > a {
   color: #9d9d9d;
 }
 
-nav li{
+nav li {
   padding: 5px 0;
 }
 
@@ -114,4 +114,30 @@ nav li{
 
 .to-left {
   float: left;
+}
+
+#more-info-ico svg {
+  margin: 20% 30%;
+  width: 40%;
+}
+
+#more-info-ico {
+  width: 50px;
+}
+
+#more-info {
+  position: absolute;
+  left: 0;
+  width: 40%;
+  height: 100%;
+  box-shadow: black 0 5px 10px;
+  background-color: #F7F7F7;
+}
+
+.navbar {
+  margin-bottom: 0;
+}
+
+#history-page {
+  padding-top: 20px;
 }
