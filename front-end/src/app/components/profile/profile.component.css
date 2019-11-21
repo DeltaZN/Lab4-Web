@@ -81,3 +81,37 @@ body, html {
 .reset-border-radius {
   border-radius: 0;
 }
+
+ul.nav li{
+  width: 120px;
+  height: 50px;
+  text-align: center;
+}
+
+nav li.active {
+  background-color: #080808;
+}
+
+nav li.active>a {
+  color: #fff;
+}
+
+nav li:not(.active)>a {
+  color: #9d9d9d;
+}
+
+nav li{
+  padding: 5px 0;
+}
+
+.navbar-nav {
+  margin: 0;
+}
+
+.to-right {
+  float: right;
+}
+
+.to-left {
+  float: left;
+}

@@ -1,14 +1,9 @@
 <nav class="navbar navbar-inverse reset-border-radius">
-  <div class="container-fluid">
-
-    <ul class="nav navbar-nav">
-      <li class="{{section!='check-point'?'active':''}}"><a href="/profile">{{currentUser.username}}</a></li>
-      <li class="{{section=='check-point'?'active':''}}"><a href="/check-point">Check Point</a></li>
+    <ul class="nav">
+      <li class="to-left {{section!='check-point'?'active':''}}"><a href="/profile">{{currentUser.username}}</a></li>
+      <li class="to-left {{section=='check-point'?'active':''}}"><a href="/check-point">Check Point</a></li>
+      <li class="to-right"><a href="#" (click)="logOut()"><span class="glyphicon glyphicon-log-in"></span> LogOut</a></li>
     </ul>
-    <ul class="nav navbar-nav navbar-right">
-      <li><a href="/login" (click)="logOut()"><span class="glyphicon glyphicon-log-in"></span> LogOut</a></li>
-    </ul>
-  </div>
 </nav>
 
 <div class="container">
