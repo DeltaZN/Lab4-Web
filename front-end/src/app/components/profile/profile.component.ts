@@ -33,4 +33,13 @@ export class ProfileComponent implements OnInit {
 
         });
   }
+
+  showMoreInfo() {
+    let infoBlock = document.getElementById('more-info');
+    infoBlock.style.visibility = infoBlock.style.visibility?'':'hidden';
+  }
+
+  changeSection(section: string) {
+    this.section = section;
+  }
 }
