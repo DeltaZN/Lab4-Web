@@ -14,7 +14,7 @@ export class HistoryComponent implements OnInit {
   constructor(private service: PointsService) { }
 
   ngOnInit() {
-    this.points = this.service.getPoints();
+    this.service.getPoints().subscribe(data => this.points = data as Point[]);
   }
 
   show(point: Point) {

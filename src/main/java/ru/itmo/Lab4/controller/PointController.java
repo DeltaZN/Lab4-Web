@@ -31,7 +31,7 @@ public class PointController {
     @CrossOrigin
     @PostMapping("/points")
     Point newPoint(@RequestBody Point newPoint, Principal user) {
-        newPoint.setInArea(graphic.isInArea(newPoint));
+        newPoint.setResult(graphic.isInArea(newPoint));
         newPoint.setUser(userRepository.findByUsername(user.getName()));
         return pointRepository.save(newPoint);
     }

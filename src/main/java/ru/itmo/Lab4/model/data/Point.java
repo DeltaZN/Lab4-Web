@@ -1,7 +1,6 @@
 package ru.itmo.Lab4.model.data;
 
 import lombok.Data;
-import ru.itmo.Lab4.model.data.User;
 
 import javax.persistence.*;
 
@@ -13,17 +12,17 @@ public class Point {
     private Double x;
     private Double y;
     private Double r;
-    private Boolean inArea;
+    private Boolean result;
 
     @ManyToOne
     private User user;
 
     public Point() {}
 
-    public Point(double x, double y, double r, boolean inArea) {
+    public Point(double x, double y, double r, boolean result) {
         this.x = x;
         this.y = y;
         this.r = r;
-        this.inArea = inArea;
+        this.result = result;
     }
 }

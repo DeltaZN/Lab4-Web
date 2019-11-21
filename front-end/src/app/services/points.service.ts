@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { Point} from "../model/model.point";
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {AppComponent} from "../app.component";
+import {Observable} from "rxjs";
+import { map } from 'rxjs/operators';
 
 @Injectable()
 export class PointsService {
@@ -19,19 +21,9 @@ export class PointsService {
     return headers;
   }
 
-  public getPoints(): Point[] {
-    this.http.get(AppComponent.API_URL+'/points',{ headers: this.getHeaders()}).pipe(data => {
-      let pointsList = data;
-      return pointsList.map(function(point:any) {
-        return {x: point.x, y: point.y, r: point.r, result: point.inArea};
-      });
-    });
+  public getPoints(): Observable<any> {
 
-    return [
-      new Point(3,5,7,true),
-      new Point(3,5,7,true),
-      new Point(3,5,7,true)
-    ];
+    return this.http.get(AppComponent.API_URL+'/points',{ headers: this.getHeaders()});
   }
 
   public addPoint(point: Point) {
