@@ -9,7 +9,7 @@ export class UrlPermission implements CanActivate {
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     let isAuthorized: boolean = !! localStorage.getItem('currentUser');
 
-    if(!isAuthorized && state.url.match(/^\/(profile|check-point)$/ig)){
+    if(!isAuthorized && state.url.match(/^\/(profile|check-point|history)$/ig)){
       this.router.navigate(['/login'], { queryParams: { returnUrl: state.url }});
       return false;
     }else if(isAuthorized && state.url.match(/^\/(login|register)$/ig)){

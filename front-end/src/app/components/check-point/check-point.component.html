@@ -1,3 +1,45 @@
-<p>
-  check-point works!
-</p>
+<form id="formId" name="form-check" (ngSubmit)="f.form.valid && addPoint()" #f="ngForm" novalidate>
+  <div class="alert alert-danger" role="alert" *ngIf="errorMessage">{{errorMessage}}</div>
+
+  <div class="form-group" [ngClass]="{ 'has-error': f.submitted}">
+    <label for="xSelect">X</label>
+    <select form="formId" id="xSelect">
+      <option value="-2">-2</option>
+      <option value="-1.5">-1.5</option>
+      <option value="-1">-1</option>
+      <option value="-0.5">-0.5</option>
+      <option value="0">0</option>
+      <option value="0.5">0.5</option>
+      <option value="1">1</option>
+      <option value="1.5">1.5</option>
+      <option value="2">2</option>
+    </select>
+  </div>
+
+  <div class="form-group" [ngClass]="{ 'has-error': f.submitted}">
+    <label for="y">Y</label>
+    <input type="text" class="form-control" id="y" name="password" [(ngModel)]="point.y"
+           #y="ngModel" required/>
+  </div>
+
+  <div class="form-group" [ngClass]="{ 'has-error': f.submitted }">
+    <label for="rSelect">R</label>
+    <select form="formId" id="rSelect">
+      <option value="-2">-2</option>
+      <option value="-1.5">-1.5</option>
+      <option value="-1">-1</option>
+      <option value="-0.5">-0.5</option>
+      <option value="0">0</option>
+      <option value="0.5">0.5</option>
+      <option value="1">1</option>
+      <option value="1.5">1.5</option>
+      <option value="2">2</option>
+    </select>
+  </div>
+
+  <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Add point</button>
+
+</form>
+<canvas id="canvas" width="300" height="300" onclick="addPointFromCanvas()">
+</canvas>
+
