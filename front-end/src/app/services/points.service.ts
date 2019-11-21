@@ -20,7 +20,12 @@ export class PointsService {
   }
 
   public getPoints(): Point[] {
-    this.http.get(AppComponent.API_URL+'/points',{ headers: this.getHeaders()}).subscribe(data => console.log(data));
+    this.http.get(AppComponent.API_URL+'/points',{ headers: this.getHeaders()}).pipe(data => {
+      let pointsList = data;
+      return pointsList.map(function(point:any) {
+        return {x: point.x, y: point.y, r: point.r, result: point.inArea};
+      });
+    });
 
     return [
       new Point(3,5,7,true),

@@ -16,21 +16,73 @@ export class CheckPointComponent implements OnInit {
   constructor(private service: PointsService) { }
 
   ngOnInit() {
+    this.point.x = -2;
     this.drawGraphic(1);
   }
 
+  setR(value) {
+    this.point.r = value;
+  }
+
+  setX(value) {
+    this.point.x = value;
+  }
+
   addPoint() {
-    console.log("adding point from form");
+    console.log("adding point");
     this.service.addPoint(this.point);
   }
 
   addPointFromCanvas() {
-    console.log("adding point from canvas")
+    console.log("Click on canvas");
+    let canvas = document.getElementById("canvas");
+
+    let br = canvas.getBoundingClientRect();
+    let left = br.left;
+    let top = br.top;
+
+    let event: MouseEvent = <MouseEvent> window.event;
+    let x = event.clientX - left;
+    let y = event.clientY - top;
+
+    let xCalculated = (x - 150) / 130 * 5;
+    let yCalculated = (-y + 150) / 130 * 5;
+
+    this.point.x = xCalculated;
+    this.point.y = yCalculated;
+
+    this.addPoint();
+
+  }
+
+  drawPoint(point: Point) {
+
+    let x = point.x, y = point.y, r = point.r, hit = point.result;
+
+    console.log('Marking point ' + x + ', ' + y + ', ' + hit);
+
+    let canvas = <HTMLCanvasElement> document.getElementById("canvas"), context = canvas.getContext("2d");
+
+    context.beginPath();
+    context.rect(Math.round(150 + ((x / 5) * 130)) - 3, Math.round(150 - ((y / 5) * 130)) - 3, 6, 6);
+    context.closePath();
+    context.strokeStyle = 'black';
+
+    let color = 'red';
+
+    if (hit) {
+      color = 'lime';
+    }
+
+    context.fillStyle = color;
+    context.fill();
+    context.stroke();
   }
 
   drawGraphic(r) {
-    console.log("Drawing graphic...")
-    let canvas = document.getElementById("canvas"), context = canvas.getContext("2d");
+    console.log("Drawing graphic with R="+r);
+    let canvas: HTMLCanvasElement =  <HTMLCanvasElement> document.getElementById("canvas");
+    let context = canvas.getContext("2d");
     context.clearRect(0, 0, canvas.width, canvas.height);
 
     // rectangle

@@ -15,8 +15,6 @@ export class HistoryComponent implements OnInit {
 
   ngOnInit() {
     this.points = this.service.getPoints();
-    this.service.addPoint(new Point(0, 0, 1,false));
-    console.log(this.points);
   }
 
   show(point: Point) {
