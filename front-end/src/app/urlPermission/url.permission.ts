@@ -7,13 +7,16 @@ export class UrlPermission implements CanActivate {
   constructor(private router: Router) { }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    if (localStorage.getItem('currentUser')) {
-      // logged in so return true
-      return true;
+    let isAuthorized: boolean = !! localStorage.getItem('currentUser');
+
+    if(!isAuthorized && state.url.match(/^\/(profile|check-point)$/ig)){
+      this.router.navigate(['/login'], { queryParams: { returnUrl: state.url }});
+      return false;
+    }else if(isAuthorized && state.url.match(/^\/(login|register)$/ig)){
+      this.router.navigate(['/profile']);
+      return false;
     }
 
-    // not logged in so redirect to login page with the return url
-    this.router.navigate(['/login'], { queryParams: { returnUrl: state.url }});
-    return false;
+    return true;
   }
 }

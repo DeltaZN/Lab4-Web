@@ -13,6 +13,9 @@ import { ProfileComponent } from './components/profile/profile.component';
 import {routing} from "./app.routing";
 import {FacebookModule} from "ngx-facebook";
 import {UrlPermission} from "./urlPermission/url.permission";
+import {HistoryComponent} from './components/history/history.component';
+import {CheckPointComponent} from './components/check-point/check-point.component';
+import {HistoryService} from "./services/history.service";
 
 
 @NgModule({
@@ -21,13 +24,14 @@ import {UrlPermission} from "./urlPermission/url.permission";
     LoginComponent,
     RegisterComponent,
     ProfileComponent,
-
+    HistoryComponent,
+    CheckPointComponent,
 
   ],
   imports: [
     BrowserModule,HttpModule,FormsModule,routing, FacebookModule.forRoot(),
   ],
-  providers: [AuthService,AccountService,UrlPermission],
+  providers: [AuthService, AccountService, UrlPermission, HistoryService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

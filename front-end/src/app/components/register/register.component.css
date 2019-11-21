@@ -4,11 +4,6 @@
 /*
  * General styles
  */
-body, html {
-  height: 100%;
-  background-repeat: no-repeat;
-  background-image: linear-gradient(rgb(104, 145, 162), rgb(12, 97, 33));
-}
 
 .card-container.card {
   max-width: 350px;
@@ -109,7 +104,6 @@ body, html {
 .btn.btn-signin,.btn-cancel {
   /*background-color: #4d90fe; */
   background-color: rgb(104, 145, 162);
-  /* background-color: linear-gradient(rgb(104, 145, 162), rgb(12, 97, 33));*/
   padding: 0px;
   font-weight: 700;
   font-size: 14px;

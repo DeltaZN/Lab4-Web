@@ -10,7 +10,7 @@ export class AuthService {
   public logIn(user: User){
 
     let headers = new Headers();
-    headers.append('Accept', 'application/json')
+    headers.append('Accept', 'application/json');
     // creating base64 encoded String from user name and password
     var base64Credential: string = btoa( user.username+ ':' + user.password);
     headers.append("Authorization", "Basic " + base64Credential);
@@ -31,10 +31,7 @@ export class AuthService {
 
   logOut() {
     // remove user from local storage to log user out
-    return this.http.post(AppComponent.API_URL+"logout",{})
-      .map((response: Response) => {
-        localStorage.removeItem('currentUser');
-      });
-
+    localStorage.removeItem('currentUser');
+    return this.http.post(AppComponent.API_URL+"logout",{});
   }
 }
