@@ -1,0 +1,21 @@
+#point-history-card {
+  width: 600px;
+  height: 222px;
+  background: #FFFACD;
+  border-radius: 13px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#point-history-card th, #point-history-card td{
+  text-align: center;
+  width: 20%
+}
+
+#point-history-card tr{
+  height: 32px;
+}
+
+button{
+  height: 30px;
+  width: 120px;
+}
