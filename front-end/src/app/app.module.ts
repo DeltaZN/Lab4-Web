@@ -17,6 +17,7 @@ import {HistoryComponent} from './components/history/history.component';
 import {CheckPointComponent} from './components/check-point/check-point.component';
 import {PointsService} from "./services/points.service";
 import {HttpModule} from "@angular/http";
+import {InfoComponent} from "./components/info/info.component";
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import {HttpModule} from "@angular/http";
     ProfileComponent,
     HistoryComponent,
     CheckPointComponent,
+    InfoComponent,
 
   ],
   imports: [

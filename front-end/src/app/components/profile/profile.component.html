@@ -1,29 +1,28 @@
 <nav class="navbar navbar-inverse reset-border-radius">
-    <ul class="nav">
-      <li class="to-left {{section!='check-point'?'active':''}}"><a href="/profile">{{currentUser.username}}</a></li>
-      <li class="to-left {{section=='check-point'?'active':''}}"><a href="/check-point">Check Point</a></li>
-      <li class="to-right"><a href="#" (click)="logOut()"><span class="glyphicon glyphicon-log-in"></span> LogOut</a></li>
-    </ul>
+  <ul class="nav">
+    <li class="to-left" id="more-info-ico" (click)="showMoreInfo()">
+      <svg>
+        <line stroke="violet" stroke-width="2" x1="0" x2="20" y1="3" y2="3"></line>
+        <line stroke="violet" stroke-width="2" x1="0" x2="20" y1="9" y2="9"></line>
+        <line stroke="violet" stroke-width="2" x1="0" x2="20" y1="15" y2="15"></line>
+      </svg>
+    </li>
+    <li class="to-left {{section!='check-point'?'active':''}}" (click)="changeSection('profile')"><a>History</a></li>
+    <li class="to-left {{section=='check-point'?'active':''}}" (click)="changeSection('check-point')"><a>Check Point</a></li>
+    <li class="to-right"><a href="#" (click)="logOut()"><span class="glyphicon glyphicon-log-in"></span> LogOut</a></li>
+  </ul>
 </nav>
 
 <div class="container">
-{{section}}
-  <!-- Jumbotron Header -->
-<!--  <header class="jumbotron my-4">-->
-<!--    <h1 class="display-3">  <strong>{{currentUser.username}}</strong>, Welcome to your app </h1>-->
-<!--    <p class="lead"> welcome to your profile-->
-<!--    </p>-->
-<!--    <div class="row">-->
-
-<!--      <li><a href="#"><span class="glyphicon glyphicon-log-in" (click)="logOut()"></span> LogOut</a></li>-->
-
-
-<!--    </div>-->
-<!--  </header>-->
-
+  <div id="more-info" style="visibility: hidden">
+    <app-info></app-info>
+  </div>
+  <div id="history-page" *ngIf="section == 'profile'">
+    <app-history></app-history>
+  </div>
+  <div id="check-point-page" *ngIf="section == 'check-point'">
+    <app-check-point></app-check-point>
+  </div>
 </div>
-
-
-
 
 

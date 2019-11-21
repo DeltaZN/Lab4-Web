@@ -1,16 +1,14 @@
-<div id="point-history-card" class="container">
-  <table>
-    <tr>
-      <th>X</th>
-      <th>Y</th>
-      <th>R</th>
-      <th>Result</th>
-    </tr>
-    <tr *ngFor="let point of points">
-      <td>{{point.x}}</td>
-      <td>{{point.y}}</td>
-      <td>{{point.r}}</td>
-      <td>{{point.result?"Попадание ＼(￣▽￣)／":"Промах (╯︵╰,)"}}</td>
-    </tr>
-  </table>
-</div>
+<table id="point-history-card" class="container">
+  <tr>
+    <th>X</th>
+    <th>Y</th>
+    <th>R</th>
+    <th class="last-cell">Result</th>
+  </tr>
+  <tr *ngFor="let point of points">
+    <td>{{point.x}}</td>
+    <td>{{point.y}}</td>
+    <td>{{point.r}}</td>
+    <td class="last-cell">{{point.result?"Попадание":"Промах"}}</td>
+  </tr>
+</table>
