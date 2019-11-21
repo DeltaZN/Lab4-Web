@@ -16,6 +16,7 @@ import {UrlPermission} from "./urlPermission/url.permission";
 import {HistoryComponent} from './components/history/history.component';
 import {CheckPointComponent} from './components/check-point/check-point.component';
 import {HistoryService} from "./services/history.service";
+import { InfoComponent } from './components/info/info.component';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import {HistoryService} from "./services/history.service";
     ProfileComponent,
     HistoryComponent,
     CheckPointComponent,
+    InfoComponent,
 
   ],
   imports: [

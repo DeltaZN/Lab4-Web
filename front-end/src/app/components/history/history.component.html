@@ -1,20 +1,14 @@
-<div id="point-history-card" class="container">
-  <table>
+<table id="point-history-card" class="container">
     <tr>
       <th>X</th>
       <th>Y</th>
       <th>R</th>
-      <th>Result</th>
-      <th>Calc time</th>
+      <th class="last-cell">Result</th>
     </tr>
     <tr *ngFor="let point of points">
       <td>{{point.x}}</td>
       <td>{{point.y}}</td>
       <td>{{point.r}}</td>
-      <td>{{point.result?"Попадание ＼(￣▽￣)／":"Промах (╯︵╰,)"}}</td>
-      <td>
-        <button (click)="show(point)"></button>
-      </td>
+      <td class="last-cell">{{point.result?"Попадание":"Промах"}}</td>
     </tr>
   </table>
-</div>
