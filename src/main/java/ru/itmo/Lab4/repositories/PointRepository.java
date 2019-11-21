@@ -2,8 +2,8 @@ package ru.itmo.Lab4.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import ru.itmo.Lab4.model.Point;
-import ru.itmo.Lab4.model.User;
+import ru.itmo.Lab4.model.data.Point;
+import ru.itmo.Lab4.model.data.User;
 
 import java.util.Collection;
 

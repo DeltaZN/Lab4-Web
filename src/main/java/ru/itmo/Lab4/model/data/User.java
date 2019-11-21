@@ -1,4 +1,4 @@
-package ru.itmo.Lab4.model;
+package ru.itmo.Lab4.model.data;
 
 import lombok.Data;
 
