@@ -9,15 +9,17 @@ import {Router} from "@angular/router";
   styleUrls: ['./profile.component.css'],
   encapsulation: ViewEncapsulation.None
 })
+// TODO: rename component profile -> home
 export class ProfileComponent implements OnInit {
   currentUser: User;
+  section: string;
+
   constructor(public authService: AuthService, public router: Router) {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
-
-
   }
 
   ngOnInit() {
+    this.section = window.location.pathname.substr(1);
   }
 
 // login out from the app
