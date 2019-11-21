@@ -24,7 +24,7 @@
     "@ng-bootstrap/ng-bootstrap": "^1.0.0-beta.5",
     "angular4-social-login": "^1.0.13",
     "boostrap": "^2.0.0",
-    "bootstrap": "^3.3.7",
+    "bootstrap": "^3.4.1",
     "core-js": "^2.4.1",
     "handlebars": "^4.1.2",
     "ngx-facebook": "^2.4.0",
