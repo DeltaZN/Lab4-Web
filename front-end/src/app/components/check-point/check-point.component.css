@@ -2,7 +2,7 @@ form {
   margin-top: 17%;
   padding: 10px 15px;
   width: 310px;
-  height: 310px;
+  min-height: 310px;
 }
 
 .desktop-form {
@@ -12,7 +12,7 @@ form {
 
 canvas {
   padding: 5px;
-  margin: 15% 0;
+  margin: 17% 0;
 }
 
 .desktop-canvas {

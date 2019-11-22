@@ -1,6 +1,6 @@
 <div class="{{isDesktopDisplay()?'':'flex-g-center'}}">
   <form id="formId" class="block {{isDesktopDisplay()?'desktop-form':''}}" name="form-check"
-        (ngSubmit)="f.form.valid && addPoint()" #f="ngForm" novalidate>
+        (ngSubmit)="addPoint()" #f="ngForm" novalidate>
     <div class="alert alert-danger" role="alert" *ngIf="errorMessage">{{errorMessage}}</div>
 
     <div class="form-group" [ngClass]="{ 'has-error': f.submitted}">

@@ -1,5 +1,4 @@
-
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
 
 @Component({
   selector: 'app-info',
@@ -8,6 +7,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.None
 })
 export class InfoComponent implements OnInit {
+  @Input() username: string;
 
   constructor() { }
 
