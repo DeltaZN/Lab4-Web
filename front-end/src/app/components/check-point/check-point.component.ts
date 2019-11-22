@@ -208,4 +208,7 @@ export class CheckPointComponent implements OnInit {
     context.stroke();
   }
 
+  isDesktopDisplay() {
+    return document.body.clientWidth >= 1000;
+  }
 }
