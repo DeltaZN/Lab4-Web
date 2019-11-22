@@ -7,14 +7,14 @@
         <line stroke="violet" stroke-width="2" x1="0" x2="20" y1="15" y2="15"></line>
       </svg>
     </li>
-    <li class="to-left {{section!='check-point'?'active':''}}" (click)="changeSection('profile')"><a>History</a></li>
-    <li class="to-left {{section=='check-point'?'active':''}}" (click)="changeSection('check-point')"><a>Check Point</a></li>
+    <li class="to-left {{section!='check-point'?'active':''}}" (click)="changeSection('profile')"><a  routerLink="/profile" routerLinkActive="active">History</a></li>
+    <li class="to-left {{section=='check-point'?'active':''}}" (click)="changeSection('check-point')"><a routerLink="/check-point" routerLinkActive="active" > Check Point</a></li>
     <li class="to-right"><a href="#" (click)="logOut()"><span class="glyphicon glyphicon-log-in"></span> LogOut</a></li>
   </ul>
 </nav>
 
 <div class="container">
-  <div id="more-info" #moreInfo style="visibility: hidden">
+  <div id="more-info" #moreInfo style="visibility: hidden" >
     <app-info [username]="currentUser.username"></app-info>
   </div>
   <div id="history-page" *ngIf="section == 'profile'">

@@ -49,7 +49,6 @@ public class PointController {
             Point point = new Point(p.getX(), p.getY(), r, false);
             point.setResult(graphic.isInArea(point));
             recalculated.add(point);
-            System.out.println(point);
         }
 
         return recalculated;
