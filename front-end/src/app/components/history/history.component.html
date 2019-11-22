@@ -6,8 +6,8 @@
     <th class="last-cell">Result</th>
   </tr>
   <tr *ngFor="let point of points">
-    <td>{{point.x}}</td>
-    <td>{{point.y}}</td>
+    <td>{{point.x | number:'.0-3'}}</td>
+    <td>{{point.y | number:'.0-3'}}</td>
     <td>{{point.r}}</td>
     <td class="last-cell">{{point.result?"hit":"miss"}}</td>
   </tr>

@@ -17,8 +17,4 @@ export class HistoryComponent implements OnInit {
     this.service.getPoints().subscribe(data => this.points = data as Point[]);
   }
 
-  show(point: Point) {
-    // TODO: show by canvas
-    console.log(point)
-  }
 }

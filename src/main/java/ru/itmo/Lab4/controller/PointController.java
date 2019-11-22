@@ -7,7 +7,9 @@ import ru.itmo.Lab4.repositories.PointRepository;
 import ru.itmo.Lab4.repositories.UserRepository;
 
 import java.security.Principal;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 @RestController
 public class PointController {
@@ -37,13 +39,21 @@ public class PointController {
     }
 
 
-//    @CrossOrigin
-//    @GetMapping("/points/{id}")
-//    Point onePoint(@PathVariable Long id) {
-//
-//        return pointRepository.findById(id)
-//                .orElseThrow(() -> new PointNotFoundException(id));
-//    }
+    @CrossOrigin
+    @GetMapping("/points/{r}")
+    Collection<Point> allPointsRecalculation(@PathVariable Double r, Principal user) {
+        List<Point> recalculated = new ArrayList<>();
+        Collection<Point> points = pointRepository.findAllUserPoints(userRepository.findByUsername(user.getName()));
+
+        for (Point p : points) {
+            Point point = new Point(p.getX(), p.getY(), r, false);
+            point.setResult(graphic.isInArea(point));
+            recalculated.add(point);
+            System.out.println(point);
+        }
+
+        return recalculated;
+    }
 
 //    @CrossOrigin
 //    @PutMapping("/points/{id}")
