@@ -216,4 +216,7 @@ export class CheckPointComponent implements OnInit {
     this.getPointsRecalculated(r);
   }
 
+  isDesktopDisplay() {
+    return document.body.clientWidth >= 1000;
+  }
 }

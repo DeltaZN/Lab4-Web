@@ -1,0 +1,53 @@
+form {
+  margin-top: 17%;
+  padding: 10px 15px;
+  width: 310px;
+  height: 310px;
+}
+
+.desktop-form {
+  float: left;
+  margin-left: 10%;
+}
+
+canvas {
+  padding: 5px;
+  margin: 15% 0;
+}
+
+.desktop-canvas {
+  float: right;
+  margin-right: 10%;
+}
+
+form .form-group {
+  margin: 15px 0;
+
+}
+
+form button {
+  margin-top: 30px;
+  height: 38px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn-block {
+  width: 150px;
+}
+
+form input[type=text], form select {
+  width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 30px;
+  border-radius: 5px;
+}
+
+form select {
+  margin-left: 40px;
+}
+
+.form-group {
+  margin-bottom: 0;
+}

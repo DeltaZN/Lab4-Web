@@ -1,5 +1,25 @@
 body, html {
-  height: 100%;
-  background-repeat: no-repeat;
   background-image: linear-gradient(#ffa2f3, #c731ff);
+}
+
+.profile-img-card {
+  width: 96px;
+  height: 96px;
+  margin: 50px auto 0 auto;
+  display: block;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+}
+
+.flex-g-center {
+  display: flex;
+  justify-content: center;
+}
+
+.block {
+  background: #FFFACD;
+  border-radius: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+  box-shadow: black 0 5px 10px;
 }

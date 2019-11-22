@@ -126,12 +126,22 @@ nav li {
 }
 
 #more-info {
-  position: absolute;
+  position: fixed;
   left: 0;
   width: 40%;
   height: 100%;
   box-shadow: black 0 5px 10px;
   background-color: #F7F7F7;
+}
+
+header {
+  position: fixed;
+  width: 100%;
+  z-index: 3;
+}
+
+body, html {
+  background-image: linear-gradient(270deg, #ffa2f3, #c731ff);
 }
 
 .navbar {
