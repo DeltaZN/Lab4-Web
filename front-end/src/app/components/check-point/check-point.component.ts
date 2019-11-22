@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import {PointsService} from "../../services/points.service";
+import { isNumeric } from 'rxjs/util/isNumeric';
 import {Point} from "../../model/model.point";
 
 @Component({
@@ -12,6 +13,8 @@ export class CheckPointComponent implements OnInit {
 
   point: Point = new Point(0, 0, 1, false);
   errorMessage:string;
+  private rightX = ['-2','-1.5','-1','-0.5','0','0.5','1','1.5','2'];
+  private rightR = ['-2','-1.5','-1','-0.5','0','0.5','1','1.5','2'];
 
   constructor(private service: PointsService) { }
 
@@ -30,10 +33,23 @@ export class CheckPointComponent implements OnInit {
 
   addPoint() {
     console.log("adding point");
-    this.service.addPoint(this.point).then(data => this.drawPoint(<Point>data));
-  }
 
-  getPointsRecalculated(r) {
+    if (!isNumeric(this.point.y) || !(-3 < this.point.y && this.point.y < 3)){
+      this.error('Wrong y value');
+      return false;
+    }else if (!isNumeric(this.point.x) && !(this.rightX.includes(this.point.x))){
+      this.error('Wrong x value');
+      return false;
+    }else if (!isNumeric(this.point.r) && !(this.rightR.includes(this.point.r))){
+      this.error('Wrong r value');
+      return false;
+    }
+
+    this.service.addPoint(this.point).then(data => this.drawPoint(<Point>data));
+    return true;
+  }
+  
+   getPointsRecalculated(r) {
     console.log("getting points");
     this.service.getPointsRecalculated(r).subscribe(data => (data as Point[]).forEach(p => this.drawPoint(p)));
   }
@@ -218,5 +234,10 @@ export class CheckPointComponent implements OnInit {
 
   isDesktopDisplay() {
     return document.body.clientWidth >= 1000;
+  }
+
+  private error(message: string) {
+    this.errorMessage = message;
+    setTimeout(()=>{this.errorMessage=null}, 3000);
   }
 }
