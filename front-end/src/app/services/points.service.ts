@@ -21,6 +21,10 @@ export class PointsService {
     return headers;
   }
 
+  public getPointsRecalculated(r): Observable<any> {
+    return this.http.get(AppComponent.API_URL+'/points/'+r,{ headers: this.getHeaders()});
+  }
+
   public getPoints(): Observable<any> {
 
     return this.http.get(AppComponent.API_URL+'/points',{ headers: this.getHeaders()});
@@ -28,6 +32,6 @@ export class PointsService {
 
   public addPoint(point: Point) {
     const body = {x: point.x, y: point.y, r: point.r};
-    this.http.post(AppComponent.API_URL+'/points', body, { headers: this.getHeaders()}).subscribe(data => console.log(data));
+    return this.http.post(AppComponent.API_URL+'/points', body, { headers: this.getHeaders()}).toPromise();
   }
 }

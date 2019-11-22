@@ -30,7 +30,12 @@ export class CheckPointComponent implements OnInit {
 
   addPoint() {
     console.log("adding point");
-    this.service.addPoint(this.point);
+    this.service.addPoint(this.point).then(data => this.drawPoint(<Point>data));
+  }
+
+  getPointsRecalculated(r) {
+    console.log("getting points");
+    this.service.getPointsRecalculated(r).subscribe(data => (data as Point[]).forEach(p => this.drawPoint(p)));
   }
 
   addPointFromCanvas() {
@@ -77,6 +82,7 @@ export class CheckPointComponent implements OnInit {
     context.fillStyle = color;
     context.fill();
     context.stroke();
+
   }
 
   drawGraphic(r) {
@@ -87,7 +93,7 @@ export class CheckPointComponent implements OnInit {
 
     // rectangle
     context.beginPath();
-    context.rect(150, 150, 65*(r/5), 130*(r/5));
+    context.rect(150, 150-r*13, 130*(r/5), (r)*13);
     context.closePath();
     context.strokeStyle = "#2f9aff";
     context.fillStyle = "#2f9aff";
@@ -97,7 +103,7 @@ export class CheckPointComponent implements OnInit {
     // sector
     context.beginPath();
     context.moveTo(150, 150);
-    context.arc(150, 150, 130*(r/5), Math.PI/2, Math.PI, false);
+    context.arc(150, 150, 65*(r/5), 0, Math.PI/2, false);
     context.closePath();
     context.strokeStyle = "#2f9aff";
     context.fillStyle = "#2f9aff";
@@ -108,7 +114,7 @@ export class CheckPointComponent implements OnInit {
     context.beginPath();
     context.moveTo(150, 150);
     context.lineTo(150-(130*(r/5)), 150);
-    context.lineTo(150, 150-(130*(r/5)));
+    context.lineTo(150, 150-r*13);
     context.lineTo(150, 150);
     context.closePath();
     context.strokeStyle = "#2f9aff";
@@ -206,6 +212,8 @@ export class CheckPointComponent implements OnInit {
     context.strokeStyle = "black";
     context.fillStyle = "black";
     context.stroke();
+
+    this.getPointsRecalculated(r);
   }
 
 }

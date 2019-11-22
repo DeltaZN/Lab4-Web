@@ -25,4 +25,8 @@ public class Point {
         this.r = r;
         this.result = result;
     }
+
+    public String toString() {
+        return String.format("%s %s %s %s", x, y, r, result);
+    }
 }
