@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
 import {PointsService} from "../../services/points.service";
 import { isNumeric } from 'rxjs/util/isNumeric';
 import {Point} from "../../model/model.point";
@@ -10,6 +10,9 @@ import {Point} from "../../model/model.point";
   encapsulation: ViewEncapsulation.None
 })
 export class CheckPointComponent implements OnInit {
+
+  @ViewChild('canvas')
+  canvas: ElementRef;
 
   point: Point = new Point(0, 0, 1, false);
   errorMessage:string;
@@ -56,9 +59,8 @@ export class CheckPointComponent implements OnInit {
 
   addPointFromCanvas() {
     console.log("Click on canvas");
-    let canvas = document.getElementById("canvas");
 
-    let br = canvas.getBoundingClientRect();
+    let br = this.canvas.nativeElement.getBoundingClientRect();
     let left = br.left;
     let top = br.top;
 
@@ -82,7 +84,7 @@ export class CheckPointComponent implements OnInit {
 
     console.log('Marking point ' + x + ', ' + y + ', ' + hit);
 
-    let canvas = <HTMLCanvasElement> document.getElementById("canvas"), context = canvas.getContext("2d");
+    let context = this.canvas.nativeElement.getContext("2d");
 
     context.beginPath();
     context.rect(Math.round(150 + ((x / 5) * 130)) - 3, Math.round(150 - ((y / 5) * 130)) - 3, 6, 6);
@@ -102,10 +104,9 @@ export class CheckPointComponent implements OnInit {
   }
 
   drawGraphic(r) {
-    console.log("Drawing graphic with R="+r);
-    let canvas: HTMLCanvasElement =  <HTMLCanvasElement> document.getElementById("canvas");
-    let context = canvas.getContext("2d");
-    context.clearRect(0, 0, canvas.width, canvas.height);
+    console.log("Drawing graphic with R="+r)
+    let context = this.canvas.nativeElement.getContext("2d");
+    context.clearRect(0, 0, this.canvas.nativeElement.width, this.canvas.nativeElement.height);
 
     // rectangle
     context.beginPath();

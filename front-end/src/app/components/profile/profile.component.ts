@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
 import {AuthService} from "../../services/auth.service";
 import {User} from "../../model/model.user";
 import {Router} from "@angular/router";
@@ -13,6 +13,8 @@ import {Router} from "@angular/router";
 export class ProfileComponent implements OnInit {
   currentUser: User;
   section: string;
+  @ViewChild("moreInfo")
+  infoBlock: ElementRef;
 
   constructor(public authService: AuthService, public router: Router) {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
@@ -35,8 +37,7 @@ export class ProfileComponent implements OnInit {
   }
 
   showMoreInfo() {
-    let infoBlock = document.getElementById('more-info');
-    infoBlock.style.visibility = infoBlock.style.visibility?'':'hidden';
+    this.infoBlock.nativeElement.style.visibility = this.infoBlock.nativeElement.style.visibility?'':'hidden';
   }
 
   changeSection(section: string) {

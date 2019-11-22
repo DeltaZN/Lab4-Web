@@ -44,7 +44,7 @@
   </form>
 </div>
 <div class="{{isDesktopDisplay()?'':'flex-g-center'}}">
-  <canvas id="canvas" class="block {{isDesktopDisplay()?'desktop-canvas':''}}" width="300" height="300"
+  <canvas #canvas class="block {{isDesktopDisplay()?'desktop-canvas':''}}" width="300" height="300"
           (click)="addPointFromCanvas()">
   </canvas>
 </div>

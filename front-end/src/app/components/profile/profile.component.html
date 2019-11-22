@@ -14,7 +14,7 @@
 </nav>
 
 <div class="container">
-  <div id="more-info" style="visibility: hidden">
+  <div id="more-info" #moreInfo style="visibility: hidden">
     <app-info [username]="currentUser.username"></app-info>
   </div>
   <div id="history-page" *ngIf="section == 'profile'">
