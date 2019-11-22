@@ -40,6 +40,7 @@ export class ProfileComponent implements OnInit {
   }
 
   changeSection(section: string) {
+    history.pushState(null, null, "/"+section);
     this.section = section;
   }
 }

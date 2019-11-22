@@ -9,8 +9,8 @@ import {CheckPointComponent} from "./components/check-point/check-point.componen
 
 const appRoutes: Routes = [
   { path: 'profile', component: ProfileComponent, canActivate: [UrlPermission] },
-  { path: 'check-point', component: CheckPointComponent, canActivate: [UrlPermission] },
-  { path: 'history', component: HistoryComponent, canActivate: [UrlPermission] },
+  { path: 'check-point', component: ProfileComponent, canActivate: [UrlPermission] },
+  { path: 'history', component: ProfileComponent, canActivate: [UrlPermission] },
   { path: 'login', component: LoginComponent, canActivate: [UrlPermission] },
   { path: 'register', component: RegisterComponent, canActivate: [UrlPermission] },
 

@@ -48,7 +48,7 @@ export class CheckPointComponent implements OnInit {
     this.service.addPoint(this.point).then(data => this.drawPoint(<Point>data));
     return true;
   }
-  
+
    getPointsRecalculated(r) {
     console.log("getting points");
     this.service.getPointsRecalculated(r).subscribe(data => (data as Point[]).forEach(p => this.drawPoint(p)));
@@ -63,8 +63,8 @@ export class CheckPointComponent implements OnInit {
     let top = br.top;
 
     let event: MouseEvent = <MouseEvent> window.event;
-    let x = event.clientX - left;
-    let y = event.clientY - top;
+    let x = event.clientX - left - 5;
+    let y = event.clientY - top - 5;
 
     let xCalculated = (x - 150) / 130 * 5;
     let yCalculated = (-y + 150) / 130 * 5;
