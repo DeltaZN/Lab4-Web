@@ -31,13 +31,15 @@
 - Для доступа к БД необходимо использовать Spring Data.
 
 ## Вопросы к защите лабораторной работы:
-1. Платформа Java EE. Спецификации и их реализации.
-1. Принципы IoC, CDI и Location Transpanency. Компоненты и контейнеры.  
+1. Платформа Java EE. Спецификации и их реализации.  
+Набор спецификаций - см. 4 вопрос.  
+Реализации: GlassFish, WildFly, TomEE, IBM WebSphere и т.д.
+1. Принципы IoC, CDI и Location Transparency. Компоненты и контейнеры.  
 https://habr.com/ru/post/321344/  
 **Location Transparency**
 ![LT](LT.png)
 1. Управление жизненным циклом компонентов. Дескрипторы развёртывания.
-1. Java EE API. Виды компонентов. Профили платформы Java EE.  
+1. Java EE API(Спецификации). Виды компонентов. Профили платформы Java EE.  
 ![javaProfiles](javaProfiles.png)
 JAXB - https://www.codeflow.site/ru/article/jaxb  
 JACC - спецификация, определяющая взаимодествие между сервером приложений Java EE и сервисом авторизации.  
@@ -62,7 +64,8 @@ https://habr.com/ru/post/435114/
 1. Реализация IoC и CDI в Spring. Сходства и отличия с Java EE.  
 https://sysout.ru/rabota-s-ioc-kontejnerom-v-spring/
 1. Реализация REST API в Java EE и Spring.  
-(тут всё довольно просто)
+В Java EE реализуется при помощи JAX-RS.  
+В Spring - при помощи Spring Web.
 1. React JS. Архитектура и основные принципы разработки приложений.
 1. Компоненты React. State & props. "Умные" и "глупые" компоненты.
 1. Разметка страниц в React-приложениях. JSX.
