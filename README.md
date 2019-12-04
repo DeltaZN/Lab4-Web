@@ -32,28 +32,36 @@
 
 ## Вопросы к защите лабораторной работы:
 1. Платформа Java EE. Спецификации и их реализации.
-1. Принципы IoC, CDI и Location Transpanency. Компоненты и контейнеры.
+1. Принципы IoC, CDI и Location Transpanency. Компоненты и контейнеры.  
+https://habr.com/ru/post/321344/  
+**Location Transparency**
+![LT](LT.png)
 1. Управление жизненным циклом компонентов. Дескрипторы развёртывания.
-1. Java EE API. Виды компонентов. Профили платформы Java EE.
-1. Компоненты EJB. Stateless & Stateful Session Beans. EJB Lite и EJB Full.
+1. Java EE API. Виды компонентов. Профили платформы Java EE.  
+![javaProfiles](javaProfiles.png)
+JAXB - https://www.codeflow.site/ru/article/jaxb  
+JACC - спецификация, определяющая взаимодествие между сервером приложений Java EE и сервисом авторизации.  
+JCA - https://habr.com/ru/post/251131/
+1. Компоненты EJB. Stateless & Stateful Session Beans. EJB Lite и EJB Full.  
 https://ejb.javadev.ru
-1. Работа с электронной почтой в Java EE. JavaMail API.
-1. JMS. Реализация очередей сообщений. Способы доставки сообщений до клиента. Message-Driven Beans. 
+1. Работа с электронной почтой в Java EE. JavaMail API.  
+http://www.quizful.net/post/java-mail-api
+1. JMS. Реализация очередей сообщений. Способы доставки сообщений до клиента. Message-Driven Beans.  
 http://java-online.ru/javax-jms.xhtml
-1. Понятие транзакции. Управление транзакциями в Java EE. JTA.
-http://www.javaportal.ru/java/articles/transJ2EE.html
-1. Веб-сервисы. Технологии JAX-RS и JAX-WS.
-https://www.ibm.com/developerworks/ru/library/wa-jaxrs/index.html
+1. Понятие транзакции. Управление транзакциями в Java EE. JTA.  
+http://www.javaportal.ru/java/articles/transJ2EE.html  
+1. Веб-сервисы. Технологии JAX-RS и JAX-WS.  
+https://www.ibm.com/developerworks/ru/library/wa-jaxrs/index.html  
 https://www.ibm.com/developerworks/ru/edu/ws-jax/index.html
-1. Платформа Spring. Сходства и отличия с Java EE.
+1. Платформа Spring. Сходства и отличия с Java EE.  
 https://dou.ua/lenta/articles/javaee-vs-spring/
-1. Модули Spring. Архитектура Spring Runtime. Spring Security и Spring Data.
+1. Модули Spring. Архитектура Spring Runtime. Spring Security и Spring Data.  
 https://habr.com/ru/post/222579/
-https://ru.wikibooks.org/wiki/Spring_Security/Технический_обзор_Spring_Security
+https://ru.wikibooks.org/wiki/Spring_Security/Технический_обзор_Spring_Security  
 https://habr.com/ru/post/435114/
-1. Реализация IoC и CDI в Spring. Сходства и отличия с Java EE.
+1. Реализация IoC и CDI в Spring. Сходства и отличия с Java EE.  
 https://sysout.ru/rabota-s-ioc-kontejnerom-v-spring/
-1. Реализация REST API в Java EE и Spring.
+1. Реализация REST API в Java EE и Spring.  
 (тут всё довольно просто)
 1. React JS. Архитектура и основные принципы разработки приложений.
 1. Компоненты React. State & props. "Умные" и "глупые" компоненты.
